@@ -24,9 +24,15 @@
     <ClInclude Include="ShiftRegister.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Demux.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ShiftRegister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Demux.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
