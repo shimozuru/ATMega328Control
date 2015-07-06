@@ -78,6 +78,8 @@ void Demux::readAll(int arrayNum)
 		digitalWrite(S2Pin, HIGH);
 		break;
 	}
+
+	analogRead(7);
 }
 
 Demux::~Demux()

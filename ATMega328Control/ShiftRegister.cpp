@@ -3,6 +3,7 @@
 
 ShiftRegister::ShiftRegister()
 {
+
 }
 
 ShiftRegister::ShiftRegister(int latch, int clock, int data)
@@ -22,6 +23,7 @@ void ShiftRegister::Output(int mode, byte data)
 {
 	shiftOut(dataPin, clockPin, mode, data);
 }
+
 void ShiftRegister::Output16(int mode, int data)
 {
 	if (mode == LSBFIRST)
@@ -40,7 +42,6 @@ void ShiftRegister::End(void)
 {
 	digitalWrite(latchPin, HIGH);
 }
-
 
 ShiftRegister::~ShiftRegister()
 {
