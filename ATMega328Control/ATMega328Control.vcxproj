@@ -74,7 +74,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ShiftRegister.h" />
     <ClInclude Include="Visual Micro\.ATMega328Control.vsarduino.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="ShiftRegister.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
