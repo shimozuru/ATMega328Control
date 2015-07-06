@@ -1,7 +1,8 @@
 #include "ShiftRegister.h"
 #include "Demux.h"
+#include "stl_list.h"
 
-
+//デジタルピン
 const int BLEModule_TX = 0;
 const int BLEModule_RX = 1;
 const int ICSP_MOSI = 11;
@@ -12,10 +13,12 @@ ShiftRegister IRreceive_bottomside = ShiftRegister(5, 6, 7);
 ShiftRegister IRsend_upside = ShiftRegister(8, 9, 10);
 ShiftRegister IRsend_bottomside = ShiftRegister(14, 15, 16);
 Demux demux = Demux(17, 18, 19);
+//アナログピン
 const int readPin = 7;
 
+//グローバル変数
 int dataArray[12];
-int sensorValue;
+list<int> sensorValueList;
 
 void setup() {
 	pinMode(BLEModule_TX, INPUT);
@@ -31,7 +34,7 @@ void setup() {
 }
 
 void loop() {
-	void readAll();
+	readAll();
 }
 
 void readAll(){
@@ -59,12 +62,13 @@ void readAll(){
 				//受光側の下部のシフトレジスタを設定
 				for (int j = 0; j < 8; j++) {
 					int bottomData = ~dataArray[j];
-					IRsend_bottomside.Begin();
-					IRsend_bottomside.Output(MSBFIRST, bottomData);
-					IRsend_bottomside.End();
+					IRreceive_bottomside.Begin();
+					IRreceive_bottomside.Output(MSBFIRST, bottomData);
+					IRreceive_bottomside.End();
 
-					//センサ値を取得
-					sensorValue = analogRead(readPin);
+					//センサ値を取得し，リストに追加
+					int sensorValue = analogRead(readPin);
+					sensorValueList.push_back(sensorValue);
 				}
 			}
 		}
