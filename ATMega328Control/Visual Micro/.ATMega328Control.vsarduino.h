@@ -84,6 +84,8 @@ extern "C" void __cxa_pure_virtual() {;}
 #define portInputRegister(P)
 #define portModeRegister(P)
 #include <ATMega328Control.ino>
+#include <Demux.cpp>
+#include <Demux.h>
 #include <ShiftRegister.cpp>
 #include <ShiftRegister.h>
 #endif

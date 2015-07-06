@@ -6,7 +6,7 @@ public:
 	~Demux();
 
 public:
-	Demux(int S0, int S1, int S2, int S3);
+	Demux(int S0, int S1, int S2);
 
 public:
 	void readAll(int arrayNum);
