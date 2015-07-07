@@ -35,6 +35,7 @@ void setup() {
 
 void loop() {
 	readAll();
+	serialComm();
 }
 
 void readAll(){
@@ -73,4 +74,18 @@ void readAll(){
 			}
 		}
 	}
+}
+
+void serialComm(){
+
+	list<int>::iterator it = sensorValueList.begin(); // イテレータ
+
+	while (it != sensorValueList.end())  // listの末尾まで
+	{
+		Serial.write(*it);
+		++it;  // イテレータを1つ進める
+	}
+
+	sensorValueList.clear(); //要素を全て削除
+
 }
